@@ -20,11 +20,12 @@ char1=raw_input("Do you want to spam?")
 count=0
 if char1=='y':
     nos=input("Enter number of posts to be spammed with comments: ")
-    mess=raw_input("Enter the message to commented: ")
+    mess=raw_input("Enter the message to be commented: ")
     if nos<=len(idlist):
        for indid in idlist[len(idlist)-nos:]:
     
-          facebook.publish(cat="comments",id=indid,message=mess)
+          facebook.publish(cat="comments",id=indid,message=mess) #Comments on each post
+          facebook.publish(cat="likes",id=indid)                 #Likes each post
           count=count+1
           print("Notification number:"+str(count)+" on www.facebook.com/"+str(indid).split('_')[0]+"/posts/"+str(indid).split('_')[1])
     else: 
