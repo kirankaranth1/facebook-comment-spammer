@@ -14,6 +14,7 @@ def spam():
     
     
     idlist=[x['id'] for x in r['data']]
+    idlist.reverse()
     print("There are "+ str(len(idlist)) +" spammable posts.")
     
     char1=raw_input("Do you want to spam? (y/n) ")
@@ -22,7 +23,7 @@ def spam():
         nos=input("Enter number of posts to be spammed with comments: ")
         mess=raw_input("Enter the message to be commented: ")
         if nos<=len(idlist):
-           for indid in idlist[len(idlist)-nos:]:
+           for indid in (idlist[(len(idlist)-nos):]):
         
               facebook.publish(cat="comments",id=indid,message=mess) #Comments on each post
               facebook.publish(cat="likes",id=indid)                 #Likes each post
@@ -32,3 +33,5 @@ def spam():
               print("Not that many spammable posts available. No spam happening.")
     else :
       print("No spam happening then.")
+
+spam()
