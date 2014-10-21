@@ -3,15 +3,13 @@ import fb                     #To install this package run: sudo pip install fb
 from facepy import GraphAPI   #To install this package run: sudo pip install facepy
 
 def spam():
-    token="CAACEdEose0cBAK7gbUKb6ZBczyblSNWQiSL2dgoZAKKhmTch0ZABnNZB0CtfhNZBHZBQSJZAcy39E01J1E0voKkmBcsyu0vmBo454QywPgRL8xUJLjqQoKuitw7PgaQqYxXsJlzs1ZCtl1A6kjojHJrdRFlrlOGWZAxgTOU5vrZAA8GJxZCWzcQPWNT7ZBzkVI5oFBXcvW7cZCUzAYFhAdrU2UmJ9CGwCGm1cZCxUZD"#Insert access token here.  
+    token="#"#Insert access token here. Get one at: https://developers.facebook.com/tools/explorer 
     facebook=fb.graph.api(token)
     graph1 = GraphAPI(token)
     
-    vid=input("Enter victim's id: ")
+    vid=input("Enter victim's Facebook id in quotes: ")
     query=str(vid)+"/posts?fields=id&limit=5000000000"
     r=graph1.get(query)
-    
-    
     
     idlist=[x['id'] for x in r['data']]
     idlist.reverse()
