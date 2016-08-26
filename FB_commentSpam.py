@@ -8,7 +8,7 @@ def spam():
     graph1 = GraphAPI(token)
     
     vid = input("Enter victim's Facebook id: ")
-    query = str(vid) + "/posts?fields=id&limit=5000000000"
+    query = str(vid) + "/posts?fields=id&limit=250"
     r = graph1.get(query)
     
     
